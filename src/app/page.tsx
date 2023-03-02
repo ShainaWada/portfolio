@@ -1,5 +1,6 @@
 'use client';
 import './globals.css';
+import { motion } from 'framer-motion';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
 import {
   AiFillGithub,
@@ -14,7 +15,11 @@ import javascript3d from './images/javascript3d.png';
 import react3d from './images/react3d.png';
 import github3d from './images/github3d.png';
 import figma from './images/figma.png';
+import web1 from '../app/images/web1.png';
+import web2 from '../app/images/web2.png';
+import web3 from '../app/images/web3.png';
 import { useState } from 'react';
+import { navVariants } from '../app/utils/motion';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -23,8 +28,13 @@ export default function Home() {
   };
 
   return (
-    <>
-      <main className={darkMode ? 'dark' : ''}>
+    <div className="bg-white  ">
+      <motion.main
+        variants={navVariants}
+        initial="hidden"
+        whileInView="show"
+        className={`${darkMode ? 'dark' : ''} overflow-y-hidden`}
+      >
         <header className="z-10 fixed top-0 left-0 w-full">
           <nav className="py-10 px-14 flex justify-between">
             <h1 className="text-xl font-body font-black dark:text-white">
@@ -34,7 +44,7 @@ export default function Home() {
               <li>
                 {!darkMode ? (
                   <BsFillMoonStarsFill
-                    className="cursor-pointer text-2xl"
+                    className="cursor-pointer text-2xl text-neutral-800"
                     onClick={() => handleClick()}
                   />
                 ) : (
@@ -56,11 +66,11 @@ export default function Home() {
           </nav>
         </header>
         <section className="min-h-screen dark:bg-neutral-800 flex justify-center items-center">
-          <div className="flex justify-center items-center lg:justify-around">
+          <div className="lg:flex justify-center items-center lg:justify-around">
             <div className="text-center p-10 font-body lg:flex">
               <div>
                 <h2 className="text-5xl py-2 text-rose-500 font-medium">
-                  Hogehoge Hoge
+                  Charlotte
                 </h2>
                 <h3 className="text-2xl py-2 dark:text-white">
                   Web Developer & Designer
@@ -87,27 +97,41 @@ export default function Home() {
             <h1 className="font-body text-4xl my-8 dark:text-white">Skills</h1>
           </div>
           <div className="flex flex-wrap justify-center gap-3 p-6 lg:w-5/6 lg:gap-32 md:gap-20 hover:shadow-gray-200">
-            <div className="shadow-xl rounded-3xl w-fit hover:shadow-gray-200 hover:scale-110">
+            <div className="shadow-2xl rounded-3xl w-fit hover:shadow-gray-200 hover:scale-110 transition">
               <Image src={html3d} width={200} height={200} alt="img" />
             </div>
-            <div className="shadow-xl rounded-3xl w-fit hover:shadow-gray-200 hover:scale-110">
+            <div className="shadow-xl rounded-3xl w-fit hover:shadow-gray-200 hover:scale-110 transition">
               <Image src={css3d} width={200} height={200} alt="img" />
             </div>
-            <div className="shadow-xl rounded-3xl w-fit hover:shadow-gray-200 hover:scale-110">
+            <div className="shadow-xl rounded-3xl w-fit hover:shadow-gray-200 hover:scale-110 transition">
               <Image src={javascript3d} width={200} height={200} alt="img" />
             </div>
-            <div className="shadow-xl rounded-3xl w-fit hover:shadow-gray-200 hover:scale-110">
+            <div className="shadow-xl rounded-3xl w-fit hover:shadow-gray-200 hover:scale-110 transition">
               <Image src={react3d} width={200} height={200} alt="img" />
             </div>
-            <div className="shadow-xl rounded-3xl w-fit hover:shadow-gray-200 hover:scale-110">
+            <div className="shadow-xl rounded-3xl w-fit hover:shadow-gray-200 hover:scale-110 transition">
               <Image src={github3d} width={200} height={200} alt="img" />
             </div>
-            <div className="shadow-xl rounded-3xl w-fit hover:shadow-gray-200 hover:scale-110">
+            <div className="shadow-xl rounded-3xl w-fit hover:shadow-gray-200 hover:scale-110 transition">
               <Image src={figma} width={200} height={200} alt="img" />
             </div>
           </div>
         </section>
-      </main>
-    </>
+        <section className="py-3 dark:bg-neutral-800 flex flex-col text-center">
+          <h1 className="font-body text-4xl dark:text-white my-8">Works</h1>
+          <div className="mx-36 [&>div]:border-4 [&>div]:my-8 [&>div]:rounded-lg ">
+            <div className="p-3 border-4">
+              <Image className="rounded-lg " src={web1} alt="web1" />
+            </div>
+            <div className="p-3">
+              <Image className="rounded-lg " src={web2} alt="web2" />
+            </div>
+            <div className="p-3">
+              <Image className="rounded-lg " src={web3} alt="web3" />
+            </div>
+          </div>
+        </section>
+      </motion.main>
+    </div>
   );
 }
