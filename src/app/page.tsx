@@ -29,7 +29,16 @@ export default function Home() {
             <h1 className="text-xl font-black font-body dark:text-white">
               PORTFOLIO
             </h1>
-            <ul className="flex items-center">
+            <ul className="flex items-center gap-6 [&>a]:font-bold font-body dark:text-white">
+              <a href="#Skills" className="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:after:bg-white">
+                <li>Skills</li>
+              </a>
+              <a href="#Projects" className="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:after:bg-white">
+                <li>Project</li>
+              </a>
+              <a href="#Experience" className="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:after:bg-white">
+                <li>Experience</li>
+              </a>
               <li>
                 {!darkMode ? (
                   <BsFillMoonStarsFill
@@ -51,7 +60,7 @@ export default function Home() {
             <div className="p-10 text-center font-body lg:flex">
               <div>
                 <h2 className="py-2 text-5xl font-medium animate__animated animate__wobble text-rose-500">
-                  Welcome
+                  Welcome!
                 </h2>
               </div>
             </div>
@@ -60,7 +69,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="flex flex-col items-center min-h-screen dark:bg-neutral-800">
+        <section id='Skills' className="flex flex-col items-center min-h-screen dark:bg-neutral-800">
           <div className="flex items-center justify-center">
             <h1 className="my-8 text-4xl font-body dark:text-white">Skills</h1>
           </div>
@@ -85,10 +94,10 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="flex flex-col py-3 text-center dark:bg-neutral-800">
+        <section id='Projects' className="flex flex-col py-3 text-center dark:bg-neutral-800">
           <h1 className="my-8 text-4xl font-body dark:text-white">Projects</h1>
           <div className="mx-36 [&>div]:border-4 [&>div]:my-8 [&>div]:rounded-lg ">
-
+            <p className='text-left '>※以下は全て個人開発</p>
             {ProjectsData.map((value, key) => {
               return (
                 <a href={value.link}
@@ -118,11 +127,11 @@ export default function Home() {
           </div>
         </section >
 
-        <section className="flex flex-col py-3 text-center dark:bg-neutral-800">
+        <section id='Experience' className="flex flex-col py-3 text-center dark:bg-neutral-800">
           <h1 className="my-8 text-4xl font-body dark:text-white">Experience</h1>
           <div className="mx-36 [&>div]:my-8 [&>div]:rounded-lg ">
             <p className='dark:text-white'>インターンに参加し、受託開発会社でおよそ半年ほどフロントエンドエンジニアとして働きました。
-              業務としては、Next、TypeScript などを利用して、<a href="https://jobns.jp/" className='text-blue-400 underline'>JobNS</a>という求人サイトのページの実装を複数担当致しました。</p>
+              業務としては、Next、TypeScript などを利用して、<a href="https://jobns.jp/" className='text-blue-400 underline'>JobNS</a>という求人サイトのページの実装を複数担当致しました。以下は私が担当したページです。</p>
             <div className='grid grid-flow-row-dense grid-cols-2 gap-1 '>
               {ExperienceData.map((image, key) => {
                 return (
