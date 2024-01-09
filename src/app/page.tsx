@@ -2,7 +2,7 @@
 import './globals.css';
 import 'animate.css';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import icon from '/public/icon.png';
 import css3d from './images/css3d.png';
 import html3d from './images/html3d.png';
@@ -12,20 +12,19 @@ import github3d from './images/github3d.png';
 import figma from './images/figma.png';
 import { useState } from 'react';
 import { ProjectsData } from './components/ProjectsData';
-import Link from 'next/link';
+import { ExperienceData } from "./components/Experience";
 
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const handleClick = () => {
     setDarkMode(!darkMode);
-    console.log(darkMode);
   };
 
   return (
     <div className="bg-white ">
       <main className={`${darkMode ? 'dark' : ''} overflow-y-hidden`}>
-        <header className="fixed top-0 left-0 z-10 w-full">
+        <header className="fixed top-0 left-0 z-10 w-full ">
           <nav className="flex justify-between py-10 px-14">
             <h1 className="text-xl font-black font-body dark:text-white">
               PORTFOLIO
@@ -54,17 +53,6 @@ export default function Home() {
                 <h2 className="py-2 text-5xl font-medium animate__animated animate__wobble text-rose-500">
                   Welcome
                 </h2>
-                {/* <h3 className="py-2 text-2xl dark:text-white">
-                  Web Developer & Designer
-                </h3>
-                <p className="max-w-xl py-5 mx-auto leading-7 text-gray-700 text-md dark:text-white">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-                  impedit recusandae quo laboriosam autem, repellendus expedita
-                  quam.
-                </p>
-                <div className="flex justify-center gap-16 my-4 text-5xl text-gray-700">
-                  <AiFillGithub className="dark:text-white active:" />
-                </div> */}
               </div>
             </div>
             <div className="relative mx-auto overflow-hidden rounded-full bg-gradient-to-b from-rose-300 w-60 h-60 mt-14">
@@ -103,32 +91,51 @@ export default function Home() {
 
             {ProjectsData.map((value, key) => {
               return (
-                <Link href={value.link}
-                  key={key}>
-
-                  <a className="flex flex-col items-center p-3 text-center border-4">
-                    <h2 className="my-2 text-4xl dark:text-white font-head">
-                      {value.title}
-                    </h2>
-                    <Image
-                      className="rounded-lg "
-                      src={value.image}
-                      alt={value.title}
-                    />
-                    <div className="flex gap-4">
-                      <a
-                        className="my-2 text-4xl transition dark:text-white hover:scale-95"
-                        href={value.source}
-                      >
-                        {value.github}
-                      </a>
-                    </div>
-                  </a>
-
-                </Link>
+                <a href={value.link}
+                  key={key}
+                  className="flex flex-col items-center p-3 mb-6 text-center border-4">
+                  <h2 className="my-2 text-4xl dark:text-white font-head">
+                    {value.title}
+                  </h2>
+                  <Image
+                    className="rounded-lg "
+                    src={value.image}
+                    alt={value.title}
+                    width={800} height={800}
+                  />
+                  <div className="flex gap-4">
+                    <a
+                      className="my-2 text-4xl transition dark:text-white hover:scale-95"
+                      href={value.source}
+                    >
+                      {value.github}
+                    </a>
+                  </div>
+                </a>
               );
             })}
 
+          </div>
+        </section >
+
+        <section className="flex flex-col py-3 text-center dark:bg-neutral-800">
+          <h1 className="my-8 text-4xl font-body dark:text-white">Experience</h1>
+          <div className="mx-36 [&>div]:my-8 [&>div]:rounded-lg ">
+            <p className='dark:text-white'>インターンに参加し、受託開発会社でおよそ半年ほどフロントエンドエンジニアとして働きました。
+              業務としては、Next、TypeScript などを利用して、<a href="https://jobns.jp/" className='text-blue-400 underline'>JobNS</a>という求人サイトのページの実装を複数担当致しました。</p>
+            <div className='grid grid-flow-row-dense grid-cols-2 gap-1 '>
+              {ExperienceData.map((image, key) => {
+                return (
+                  <Image
+                    key={key}
+                    className="object-cover border rounded-lg"
+                    src={image}
+                    alt={`${image}の画像`}
+                    width={500} height={500}
+                  />
+                );
+              })}
+            </div>
           </div>
         </section >
 
