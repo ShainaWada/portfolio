@@ -5,6 +5,7 @@
     extend: {
       fontFamily: {
         body: ['Quicksand'],
+        head: ['M PLUS Rounded 1c'],
       },
     },
   },
