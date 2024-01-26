@@ -94,15 +94,14 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id='Projects' className="flex flex-col py-3 text-center dark:bg-neutral-800">
+        <section id='Projects' className="flex flex-col items-center gap-3 py-3 text-center dark:bg-neutral-800">
           <h1 className="my-8 text-4xl font-body dark:text-white">Projects</h1>
-          <div className="mx-36 [&>div]:border-4 [&>div]:my-8 [&>div]:rounded-lg ">
-            <p className='text-left '>※以下は全て個人開発</p>
-            {ProjectsData.map((value, key) => {
-              return (
+          <p className='text-left dark:text-white'>※以下は全て個人開発</p>
+          {ProjectsData.map((value, key) => {
+            return (
+              <div className="flex flex-col items-center gap-4 border-4 rounded-2xl" key={key}>
                 <a href={value.link}
-                  key={key}
-                  className="flex flex-col items-center p-3 mb-6 text-center border-4">
+                  className="flex flex-col items-center p-3 text-center ">
                   <h2 className="my-2 text-4xl dark:text-white font-head">
                     {value.title}
                   </h2>
@@ -112,19 +111,17 @@ export default function Home() {
                     alt={value.title}
                     width={800} height={800}
                   />
-                  <div className="flex gap-4">
-                    <a
-                      className="my-2 text-4xl transition dark:text-white hover:scale-95"
-                      href={value.source}
-                    >
-                      {value.github}
-                    </a>
-                  </div>
-                </a>
-              );
-            })}
 
-          </div>
+                </a>
+                <a
+                  className="mb-3 text-4xl transition dark:text-white hover:scale-95"
+                  href={value.source}
+                >
+                  {value.github}
+                </a>
+              </div>
+            );
+          })}
         </section >
 
         <section id='Experience' className="flex flex-col py-3 text-center dark:bg-neutral-800">
