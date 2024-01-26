@@ -99,7 +99,7 @@ export default function Home() {
           <p className='text-left dark:text-white'>※以下は全て個人開発</p>
           {ProjectsData.map((value, key) => {
             return (
-              <div className="flex flex-col items-center gap-4 border-4 rounded-2xl" key={key}>
+              <div className="flex flex-col items-center gap-4 border-4 rounded-2xl hover:opacity-80" key={key}>
                 <a href={value.link}
                   className="flex flex-col items-center p-3 text-center ">
                   <h2 className="my-2 text-4xl dark:text-white font-head">
