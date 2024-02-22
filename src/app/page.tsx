@@ -73,10 +73,10 @@ export default function Home() {
 
       <section id='Experience' className="flex flex-col py-3 text-center dark:bg-neutral-800">
         <h1 className="my-8 text-4xl font-body dark:text-white">Experience</h1>
-        <div className="mx-28 [&>div]:my-8 [&>div]:rounded-lg md:mx-16">
+        <div className="mx-28 [&>div]:my-8 [&>div]:rounded-lg ">
           <p className=' sm:text-sm md:text-md lg:text-lg dark:text-white'>インターンに参加し、受託開発会社でおよそ半年ほどフロントエンドエンジニアとして働きました。
             業務としては、Next、TypeScript などを利用して、<a href="https://jobns.jp/" className='text-blue-400 underline'>JobNS</a>という求人サイトのページの実装を複数担当致しました。以下は私が担当したページです。</p>
-          <div className='grid grid-flow-row-dense grid-cols-2 gap-1 '>
+          <div className='grid grid-flow-row-dense grid-cols-2 gap-1 place-items-center'>
             {ExperienceData.map((image, key) => {
               return (
                 <Image
