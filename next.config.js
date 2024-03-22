@@ -5,4 +5,13 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = {
+  nextConfig,
+  trailingSlash: true,
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
+    optimizeFonts: true,
+  },
+};
