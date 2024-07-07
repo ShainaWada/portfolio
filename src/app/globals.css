@@ -26,6 +26,16 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.text-shadow-title {
+  -moz-text-shadow: 1px 1px 0px rgb(255, 255, 255);
+  -webkit-text-shadow: 1px 1px 0px rgb(255, 255, 255);
+  -ms-text-shadow: 1px 1px 0px rgb(255, 255, 255);
+  text-shadow: 1px 1px 0px rgb(255, 255, 255);
+}
+
+.text-shadow {
+  filter: drop-shadow(0 0 1px #f4687f);
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
