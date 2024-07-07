@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/Layouts/header/Header";
 import { Meteors } from "./components/ui/meteors";
 
 
 
-const inter = Inter({ subsets: ["latin"] });
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,7 +19,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body className={`${montserrat.className} min-h-dvh overflow-hidden max-h-screen flex`}>
         <div className='w-full flex justify-center items-center bg-[url("/bg-image.jpg")] bg-no-repeat bg-center bg-cover overflow-x-hidden' >
           <Meteors number={10} className="ml-32" />

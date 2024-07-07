@@ -9,14 +9,10 @@ import { GrProjects } from "react-icons/gr";
 
 
 
-export function Header({
-  className,
-}: {
-  className?: string;
-}) {
+export function Header() {
 
   return (
-    <header className="absolute top-4 animate-fade-down animate-once animate-delay-100 animate-ease-in animate-alternate">
+    <header className="fixed top-4 animate-fade-down animate-once animate-delay-100 animate-ease-in animate-alternate z-50">
       <nav className="rounded-xl border-2">
         <ul className="flex gap-8 px-8 py-4">
           <Link href={"/"}><IoHomeOutline className="text-white  text-2xl" /><div className="bg-gradient-to-br from-white via-[#00bfd8] to-[#0083f5] h-[2px] w-0 group-hover:w-full transition-all duration-300"></div></Link>
